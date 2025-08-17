@@ -34,7 +34,6 @@ function reducer(state: State, action: Action): State {
       return { scores: s };
     }
     case 'RESET': {
-      // Remet à zéro sans perdre les images/nom
       const resetScores: Record<number, Score> = {};
       Object.values(state.scores).forEach(sc => {
         resetScores[sc.id] = { ...sc, wins: 0, played: 0 };

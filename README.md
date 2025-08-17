@@ -34,20 +34,11 @@ src/
 
 ---
 
-## 🧠 SOLID appliqué
 
-- **S** — Single Responsibility : chaque fichier a une seule responsabilité (ex: ScoreContext uniquement pour les scores).
-- **O** — Open/Closed : facile à étendre (ex: tri du classement), sans modifier l’existant.
-- **L** — Liskov Substitution : composants interchangeables via props claires.
-- **I** — Interface Segregation : API minimale (ex: `onVote(catId)`).
-- **D** — Dependency Inversion : les pages dépendent d’adapters (fetchCats), pas d’un backend concret.
-
----
 
 ## ♿ Accessibilité
 
 - Boutons réels `<button>` avec `aria-label`.
-- Focus visible clavier.
 - Respect de `prefers-reduced-motion`.
 - Images `alt` et `loading` optimisés.
 

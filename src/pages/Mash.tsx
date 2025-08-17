@@ -36,17 +36,6 @@ const scrollTo = useCallback((el: HTMLElement | null, smooth = true) => {
     }
   }, [pathname, scrollTo]);
 
-  // Détecte la section visible pour l'état du bouton
-  useEffect(() => {
-    const voteEl = voteRef.current; const scoresEl = scoresRef.current; if (!voteEl || !scoresEl) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.target === scoresEl && e.isIntersecting) setAtScores(true);
-        if (e.target === voteEl && e.isIntersecting) setAtScores(false);
-      });
-    }, { threshold: 0.6 });
-    io.observe(voteEl); io.observe(scoresEl); return () => io.disconnect();
-  }, []);
 
   const handleToggle = () => {
     // 👉 Ne pas scroller ici: on ne fait que changer l'URL

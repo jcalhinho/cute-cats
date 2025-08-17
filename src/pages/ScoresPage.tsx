@@ -23,9 +23,9 @@ export default function ScoresPage() {
   const [first, second, third] = [rows[0], rows[1], rows[2]];
   const rest = rows.slice(3);
 
-  const votesTotal = rows.reduce((n, r) => n + (r.wins ?? 0), 0);
+  
   const playedSum  = rows.reduce((n, r) => n + (r.played ?? 0), 0);
-  const matchesTotal = Math.floor(playedSum / 2);
+ 
 
   // Points = nb de "J'aime" (= wins), affichage 1:1
   const pts = (wins?: number) => String(wins ?? 0);
