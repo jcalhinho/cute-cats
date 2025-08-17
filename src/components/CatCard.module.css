@@ -1,0 +1,60 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0,0,0,.35);
+}
+
+.imgWrap {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  background: #0b0f1f;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.name {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+
+.voteOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  opacity: 0;
+  transition: opacity .12s ease;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.card:active .voteOverlay,
+.card.voted .voteOverlay {
+  opacity: 1;
+}
+
+.pulse {
+  animation: pulse .6s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
