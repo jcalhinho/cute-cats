@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect,  useState } from 'react';
 import { fetchCats } from '../api/cats';
 import type { Cat } from '../types';
 import Loader from '../components/Loader';
@@ -26,7 +26,7 @@ export default function VotePage() {
         if (!alive) return;
         setCats(res.images);
         dispatch({ type: 'INIT', cats: res.images });
-      } catch (e: any) {
+      } catch (e:any) {
         setErr(e?.message ?? 'Erreur inconnue');
       } finally {
         setLoading(false);
@@ -51,8 +51,8 @@ export default function VotePage() {
     setTimeout(() => setLocked(false), 200);
   };
 
-  const leftId = useMemo(() => pair?.left.id, [pair]);
-  const rightId = useMemo(() => pair?.right.id, [pair]);
+  const leftId = pair?.left.id;
+  const rightId = pair?.right.id;
 
   if (loading) return <Loader />;
   if (err) return <div className="container card" style={{ padding: 16 }}><p>Erreur : {err}</p></div>;
