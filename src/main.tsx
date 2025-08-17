@@ -5,6 +5,7 @@ import App from './App';
 import './styles/global.css';
 import { ScoreProvider } from './context/ScoreContext';
 
+
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>

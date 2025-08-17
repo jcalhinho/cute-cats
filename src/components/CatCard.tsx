@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './CatCard.module.css';
-import type { Cat } from '../types';
+import type { Cat } from '../types/types';
 
 type Props = {
   cat: Cat;

@@ -5,6 +5,7 @@ import VotePage from './pages/VotePage';
 import ScoresPage from './pages/ScoresPage';
 import NotFound from './pages/NotFound';
 
+
 export default function App() {
   return (
     <>

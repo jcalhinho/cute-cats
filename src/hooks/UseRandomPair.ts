@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
-import type { Cat, Pair } from '../types';
+
 import { pickTwoDistinct } from '../utils/shuffle';
+import type { Cat, Pair } from '../types/types';
 
 export function useRandomPair(cats: Cat[]) {
   const [pair, setPair] = useState<Pair | null>(null);

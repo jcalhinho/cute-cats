@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo, useReducer } from 'react';
-import type { Cat, Score } from '../types';
+import type { Score } from '../types/types';
+
 
 type State = {
   scores: Record<number, Score>;

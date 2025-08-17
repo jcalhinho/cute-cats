@@ -1,4 +1,5 @@
-import type { CatsResponse } from '../types';
+import type { CatsResponse } from "../types/types";
+
 
 const ENDPOINT = 'https://data.latelier.co/cats.json';
 
