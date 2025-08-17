@@ -3,6 +3,7 @@
     {
       "source": "/api/cats",
       "destination": "https://data.latelier.co/cats.json"
-    }
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

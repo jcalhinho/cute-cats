@@ -103,11 +103,7 @@ export default function ScoresPage() {
         ))}
       </div>
 
-      <div className="scoreHeader" style={{ marginTop: 12 }}>
-        <div style={{ color: 'var(--muted)' }}>
-          Total matchs: <strong>{matchesTotal}</strong> • Total votes: <strong>{votesTotal}</strong>
-        </div>
-      </div>
+      
     </div>
   );
 }
