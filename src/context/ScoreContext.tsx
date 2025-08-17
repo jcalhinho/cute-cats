@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useMemo, useReducer } from 'react';
-import type { Score } from '../types';
-
+import type { Cat, Score } from '../types';
 
 type State = {
   scores: Record<number, Score>;
@@ -21,7 +20,7 @@ function reducer(state: State, action: Action): State {
     case 'INIT': {
       const base: Record<number, Score> = {};
       action.cats.forEach(c => {
-        base[c.id] = base[c.id] ?? { id: c.id, name: c.name, wins: 0, played: 0 };
+        base[c.id] = base[c.id] ?? { id: c.id, name: c.name, url: c.url, wins: 0, played: 0 };
       });
       return { scores: base };
     }
@@ -34,8 +33,14 @@ function reducer(state: State, action: Action): State {
       s[win.id] = win; s[lose.id] = lose;
       return { scores: s };
     }
-    case 'RESET':
-      return { scores: {} };
+    case 'RESET': {
+      // Remet à zéro sans perdre les images/nom
+      const resetScores: Record<number, Score> = {};
+      Object.values(state.scores).forEach(sc => {
+        resetScores[sc.id] = { ...sc, wins: 0, played: 0 };
+      });
+      return { scores: resetScores };
+    }
     default:
       return state;
   }

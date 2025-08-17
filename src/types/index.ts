@@ -11,6 +11,7 @@ export type CatsResponse = {
 export type Score = {
   id: number;
   name: string;
+  url: string;
   wins: number;
   played: number;
 };

@@ -13,15 +13,14 @@ const fallback = 'data:image/svg+xml;utf8,' + encodeURIComponent(
 );
 
 export default function CatCard({ cat, onVote, label }: Props) {
-  const [voted, setVoted] = useState(false);
   const [imgOk, setImgOk] = useState(true);
 
   return (
     <button
       type="button"
-      className={`card ${styles.card} ${voted ? styles.pulse : ''}`}
+      className={`card ${styles.card}`}
       aria-label={`Voter pour ${cat.name}${label ? ' (' + label + ')' : ''}`}
-      onClick={() => { setVoted(true); onVote(cat.id); }}
+      onClick={() => onVote(cat.id)}
     >
       <div className={styles.imgWrap}>
         <img
@@ -33,7 +32,6 @@ export default function CatCard({ cat, onVote, label }: Props) {
         />
       </div>
       <div className={styles.name}>{cat.name}</div>
-      <div className={styles.voteOverlay}>+1 vote</div>
     </button>
   );
 }
