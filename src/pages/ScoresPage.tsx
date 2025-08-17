@@ -54,7 +54,7 @@ export default function ScoresPage() {
                   <span className="tag rank">{rows.indexOf(second) + 1}/{total}</span>
                   <span className="tag score">{pts(second.wins)}</span>
                  
-                  <img src={second.url} alt={second.name} />
+                  <img src={second.url} alt={second.name} loading="eager" />
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function ScoresPage() {
                   <span className="tag rank">{rows.indexOf(first) + 1}/{total}</span>
                   <span className="tag score">{pts(first.wins)}</span>
                   
-                  <img src={first.url} alt={first.name} />
+                  <img src={first.url} alt={first.name} loading="eager" />
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function ScoresPage() {
                   <span className="tag rank">{rows.indexOf(third) + 1}/{total}</span>
                   <span className="tag score">{pts(third.wins)}</span>
                  
-                  <img src={third.url} alt={third.name} />
+                  <img src={third.url} alt={third.name} loading="eager" />
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function ScoresPage() {
             <div className="imgBox">
               <span className="tag rank">{rows.indexOf(r) + 1}/{total}</span>
               <span className="tag score">{pts(r.wins)}</span>
-              <img alt={r.name} src={r.url} />
+              <img alt={r.name} src={r.url} loading="lazy" />
             </div>
           </div>
         ))}

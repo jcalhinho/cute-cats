@@ -12,10 +12,14 @@ export default function Mash() {
   const { pathname } = useLocation();
   const { state } = useScores();
 
-  const scrollTo = useCallback((el: HTMLElement | null, smooth = true) => {
-    if (!el) return;
-    el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
-  }, []);
+const scrollTo = useCallback((el: HTMLElement | null, smooth = true) => {
+  if (!el) return;
+  const reduce = typeof window !== 'undefined'
+    && window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behavior: ScrollBehavior = smooth && !reduce ? 'smooth' : 'auto';
+  el.scrollIntoView({ behavior, block: 'start' });
+}, []);
 
   // nombre réel de matchs = somme des "played" / 2
   const playedSum = Object.values(state.scores).reduce((n, s) => n + s.played, 0);

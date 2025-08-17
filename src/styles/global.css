@@ -9,15 +9,11 @@
   --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html,
 body,
-#root {
-  height: 100%;
-}
+#root { height: 100%; }
 
 img { vertical-align: middle; }
 
@@ -35,16 +31,8 @@ body {
   color: var(--text);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-  border: 0px;
-}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; }
 
 .container { width: 100%; max-width: none; margin: 0; padding: 24px; }
 
@@ -62,16 +50,13 @@ button {
   border-radius: 10px;
   border: 1px solid var(--primary-strong);
 }
-
 .btn.secondary {
   background: transparent;
   color: var(--text);
   border-color: var(--border);
 }
 
-
-
-/* --- Barre de 4 marques en haut --- */
+/* --- Barre des 4 marques en haut --- */
 .topBrands {
   display: grid;
   grid-auto-flow: column;
@@ -80,21 +65,17 @@ button {
   gap: 24px;
   margin: 8px 0 4px;
 }
-
 .topBrand {
-  width: 36px;
-  height:36px;
+  width: 36px; height:36px;
   border-radius: 6px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  display: grid;
-  place-items: center;
+  display: grid; place-items: center;
   font-size: 14px;
   color: var(--primary);
   background: #fff;
 }
 
-/* --- Layout de la page Vote --- */
 /* --- Layout de la page Vote --- */
 .voteRow {
   display: flex;
@@ -102,116 +83,70 @@ button {
   align-items: stretch;
   width: 100%;
 }
-
 .voteCol {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 0; /* allow shrink within flex */
+  min-width: 0;
 }
-
-.polaroid:hover {
-  background: #fff8c5;  /* ton jaune doux déjà utilisé */
-  transform: scale(1.01);          /* plus grandit */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);  /* ombre plus marquée */
-  z-index: 2;                      /* au-dessus des voisins */
-}
-
-.polaroid {
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
-}
-
-/* pour étirer sur la même hauteur */
-
 .voteSep {
   width: 0;
   border-left: 5px dashed #556c8a;
-  margin: 0px 0;
+  margin: 0;
 }
-/* Polaroïd : cadre fixe, image cover, bandeau bas */
-/* Polaroï24d : cadre fixe, image cover, bandeau bas */
-/* --- Polaroid card --- */
+
+/* --- Carte style Polaroid --- */
 .polaroid {
-  width: 90%;               /* take most of the half */
-  max-width: 70%;         /* prevent absurdly large */
+  width: 90%;
+  max-width: 70%;
   border: 3px solid var(--border);
   border-radius: 12px;
   background: #fff;
   box-shadow: var(--shadow);
   overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
 }
-
-/* Hover highlight on vote cards */
-.polaroid:hover { background: #fff8c5; /* soft yellow */ }
-.polaroid:hover .polaroidInner { background: #fff8c5; }
-.polaroid:hover .polaroidImgBox { background: #fff2a8; }
-
-/* Smooth transition for the hover */
-.polaroid, .polaroidInner, .polaroidImgBox { transition: background-color .15s ease; }
-
-/* Ensure no active border color change on click for polaroid wrapper */
-
-
-.polaroidInner {
-  padding: 12px;
-  background: #fff;
-}
-
+.polaroidInner { padding: 12px; background: transparent; transition: background-color .2s ease; }
 .polaroidImgBox {
   aspect-ratio: 1 / 1;
+  display: grid; place-items: center;
   background: #f8fafc;
-  display: grid;
-  place-items: center;
-  
   overflow: hidden;
 }
+.polaroidImgBox img { width: 100%; height: 100%; object-fit: cover; }
+.polaroid .name { display: none; } /* masque le nom en mode vote */
 
-.polaroidImgBox img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.polaroid:hover {
+  background: #fff8c5;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  z-index: 2;
 }
+.polaroidBar { padding: 10px 14px; text-align: center; }
 
-/* Force CatCard to fill the polaroid image box so left/right are identical sizes */
-.polaroidImgBox > .card { width: 100%; height: 100%; }
-.polaroidImgBox .imgWrap { width: 100%; height: 100%; }
-/* Hide inner CatCard name on vote page to keep frames identical */
-.polaroid .name { display: none; }
-
-.polaroidBar {
-  padding: 10px 14px;
- 
-  text-align: center;
-}
-
-/* Bouton central (tiroir) */
+/* Bouton central tiroir */
 .drawerToggle {
   position: fixed;
-  left: 50%;
-  bottom: 0px;
+  left: 50%; bottom: 0;
   transform: translateX(-50%);
   padding: 12px 18px;
   border-radius: 14px;
   backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   color: var(--text);
   border: 1px solid var(--border);
   min-width: 280px;
   box-shadow: var(--shadow);
+  z-index: 10;
 }
-/* Vote: séparateur local entre polaroïds */
-
-
 .drawerToggle:hover {
   background: #d0fad1;
   transform: translateX(-50%) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* Bouton bascule: toujours au-dessus (cliquable) */
-.drawerToggle { z-index: 10; }
-/* --- Grille des scores --- */
+/* --- Grille des Scores --- */
 .scoreHeader {
   display: flex;
   align-items: center;
@@ -219,109 +154,60 @@ button {
   margin: 16px 0;
 }
 
-.scoreGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.scoreItem {
-  position: relative;
-  background: transparent; /* no card chrome */
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: hidden;
-}
-
-.scoreItem .imgBox {
-  aspect-ratio: 1 / 1;      /* same width/height for all */
-  position: relative;        /* anchor for absolute tags */
-  display: grid;
-  place-items: center;
-  background: transparent;   /* no frame */
-}
-
-.scoreItem img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.scoreItem .caption { display: none; }
-
-.badgeRank {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 12px;
-  box-shadow: var(--shadow);
-}
+/* Podium desktop */
 .podiumGrid {
   display: grid;
-  grid-template-columns: 1.1fr 1.4fr 1fr; /* 2e - 1er (plus large) - 3e */
+  grid-template-columns: 1.1fr 1.4fr 1fr;
+  grid-template-areas: "second first third";
   gap: 16px;
   align-items: end;
   margin-bottom: 20px;
 }
+.podiumSecond { grid-area: second; }
+.podiumFirst  { grid-area: first; }
+.podiumThird  { grid-area: third; }
 
 .podiumCard {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  color: #fff;
 }
-
-
-
-.podiumContent {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  height: 100%;
+.podiumImgBox {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid; place-items: center;
 }
-
-/* hauteurs façon podium : 1er au centre plus grand */
+.podiumImgBox img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.96);
+}
+/* ratios façon podium */
 .podiumSecond .podiumImgBox { aspect-ratio: 16 / 8.5; }
 .podiumFirst  .podiumImgBox { aspect-ratio: 16 / 9; }
 .podiumThird  .podiumImgBox { aspect-ratio: 16 / 7.5; }
 
-/* .podiumImgBox {
-  display: grid; place-items: center;
-  overflow: hidden;
-} */
-.podiumImgBox img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: brightness(0.96); /* lisibilité du texte blanc */
-}
-.podiumImgBox {
-  position: relative;          /* ⬅ nécessaire pour les tags absolus */
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  overflow: hidden;
-}
-.podiumCaption {
-  padding: 14px 16px;
-  text-align: center;
-}
-.podiumCaption .name { font-weight: 700; }
-.podiumCaption .meta { opacity: .9; font-size: 12px; }
-
-/* pastille de rang */
-.badgeRank {
-  position: absolute; top: 10px; left: 10px;
-  width: 28px; height: 28px; border-radius: 999px;
-  background: #fff; color: #0b2a5b;
+/* Badges */
+.tag {
+  position: absolute;
+  top: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 12px;
   border: 1px solid rgba(0,0,0,.06);
-  display: grid; place-items: center; font-weight: 700; font-size: 12px;
+  box-shadow: var(--shadow);
+  z-index: 2;
 }
+.tag.rank { left: 8px; }
+.tag.score { right: 8px; }
+.tag.top { left: 50%; transform: translateX(-50%); top: 8px; }
 
-/* ---- RESTE = 4 colonnes ---- */
+/* Grille du reste */
 .scoreGridRest {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -336,75 +222,70 @@ button {
   overflow: hidden;
 }
 .scoreItem .imgBox {
-   aspect-ratio: 16 / 9;           /* images strictement carrées */
-  position: relative;            /* ancre pour les tags absolus */
-  display: block;                /* évite le grid gap et l'espace implicite */
-  background: transparent;  
-  border-radius: 12px;      /* ← ajoute */
-  overflow: hidden;         /* ← ajoute */
-     /* aucune fioriture */
+  aspect-ratio: 16 / 9;
+  position: relative;
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
 }
 .scoreItem img {
-  display: block;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   border-radius: 12px;
 }
-.scoreItem .caption { display: none !important; padding: 0 !important; margin: 0 !important; height: 0 !important; }
-.scoreItem .name, .scoreItem .meta { display: none !important; }
-/* Absolute tags over images (rank left, score right) */
-.tag {
-  position: absolute;
-  top: 8px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #0b2a5b;
-  font-weight: 700;
-  font-size: 12px;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow);
-}
-.tag.rank { left: 8px; }
-.tag.score { right: 8px; }
-.voteRowWrap {
-  min-height: calc(100vh - 250px); /* réserve de place pour les 4 marques en haut + bouton bas */
-  display: flex;
-  align-items: center;  /* centre verticalement */
-}
+.scoreItem .caption,
+.scoreItem .name,
+.scoreItem .meta { display: none !important; }
 
-
-.tag {
-  position: absolute;
-  top: 8px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #0b2a5b;
-  font-weight: 700;
-  font-size: 12px;
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: var(--shadow);
-  z-index: 2;                 /* ⬅ par-dessus l’image */
-}
-.tag.rank { left: 8px; }
-.tag.score { right: 8px; }
-.tag.top { left: 50%; transform: translateX(-50%); top: 8px; }  
+/* --- Responsive --- */
 @media (max-width: 1200px) {
   .scoreGridRest { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 900px) {
-  .podiumGrid { grid-template-columns: 1fr; }
+  .voteRow { flex-direction: column; }
+  .voteCol { width: 100%; }
+  .polaroid { width: 100%; max-width: 520px; }
+
+  /* Podium devient colonne => réordonné Top1, Top2, Top3 */
+  .podiumGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch; /* <-- force chaque enfant à prendre toute la largeur */
+  }
+  .podiumCard { width: 100%; }
+  .podiumCard .podiumImgBox { width: 100%; }
+  .podiumFirst  { order: 1; }
+  .podiumSecond { order: 2; }
+  .podiumThird  { order: 3; }
+
+  /* ratios adaptés en colonne */
+  .podiumFirst .podiumImgBox  { aspect-ratio: 16 / 9; }
+  .podiumSecond .podiumImgBox { aspect-ratio: 16 / 9; }
+  .podiumThird .podiumImgBox  { aspect-ratio: 16 / 9; }
+
   .scoreGridRest { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .scoreGridRest { grid-template-columns: 1fr; }
 }
-@media (max-width: 900px) {
-  .voteRow {
-    flex-direction: column;
-  }
-  .voteCol { width: 100%; }
-  .polaroid { width: 100%; max-width: 520px; }
+/* --- Focus visible (accessibilité clavier) --- */
+:focus-visible {
+  outline: 3px solid #ffd43b;
+  outline-offset: 3px;
+}
+
+.card:focus-visible,
+.btn:focus-visible,
+.drawerToggle:focus-visible,
+.podiumCard:focus-within,
+.polaroid:focus-within {
+  outline: 3px solid #ffd43b;
+  outline-offset: 6px;
+}
+
+/* --- Accessibilité: réduire les animations si demandé par l’utilisateur --- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .polaroid:hover, .drawerToggle:hover { transform: none !important; box-shadow: var(--shadow) !important; }
 }
