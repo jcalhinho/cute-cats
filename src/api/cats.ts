@@ -1,7 +1,7 @@
-import type { CatsResponse } from "../types/types";
+import type { CatsResponse } from "../types";
 
 
-const ENDPOINT = 'https://data.latelier.co/cats.json';
+const ENDPOINT = '/api/cats';
 
 export async function fetchCats(): Promise<CatsResponse> {
   const res = await fetch(ENDPOINT);

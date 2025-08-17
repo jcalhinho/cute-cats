@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import  { useEffect, useMemo, useState } from 'react';
 import { fetchCats } from '../api/cats';
 import type { Cat } from '../types';
 import Loader from '../components/Loader';
 import CatCard from '../components/CatCard';
 import ResultToast from '../components/ResultToast';
-import { useRandomPair } from '../hooks/useRandomPair';
+
 import { useScores } from '../context/ScoreContext';
+import { useRandomPair } from '../hooks/UseRandomPair';
 
 export default function VotePage() {
   const { state, dispatch } = useScores();

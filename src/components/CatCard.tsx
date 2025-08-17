@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './CatCard.module.css';
-import type { Cat } from '../types/types';
+import type { Cat } from '../types';
 
 type Props = {
   cat: Cat;

@@ -9,7 +9,7 @@ export default function Header() {
         <nav className="nav">
           <NavLink className={({isActive}) => `link ${isActive ? 'active' : ''}`} to="/">Voter</NavLink>
           <NavLink className={({isActive}) => `link ${isActive ? 'active' : ''}`} to="/scores">Scores</NavLink>
-          <a className="link" href="https://data.latelier.co/cats.json" target="_blank" rel="noreferrer">Dataset</a>
+          {/* <a className="link" href="https://data.latelier.co/cats.json" target="_blank" rel="noreferrer">Dataset</a> */}
         </nav>
       </div>
     </header>

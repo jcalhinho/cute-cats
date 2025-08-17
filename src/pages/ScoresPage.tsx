@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useScores } from '../context/ScoreContext';
 import { percent, ratio } from '../utils/format';
 import { Link } from 'react-router-dom';

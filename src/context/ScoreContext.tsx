@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, useReducer } from 'react';
-import type { Score } from '../types/types';
+import type { Score } from '../types';
 
 
 type State = {
