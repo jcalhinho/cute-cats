@@ -1,69 +1,77 @@
-# React + TypeScript + Vite
+# 🐱 Catmash — Le chat le plus mignon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini-application **React + TypeScript + Vite** inspirée de Facemash.
 
-Currently, two official plugins are available:
+- **Page de vote** : deux chats aléatoires, clic = 1 point au gagnant.
+- **Page des scores** : podium (Top 3) et classement général responsive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Déployée sur **Vercel**. Respect des principes **SOLID**, accessibilité et UX moderne.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19 + TypeScript 5
+- Vite (build rapide)
+- Context API + Hooks (état des scores)
+- CSS natif (global.css + modules)
+- Déploiement Vercel
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Structure
+
+```
+src/
+  api/        # fetch des données (adapter)
+  components/ # cartes, boutons, UI
+  context/    # état global des scores
+  hooks/      # logique de tirage paires
+  pages/      # Vote et Scores
+  styles/     # CSS global
+  types.ts    # typings Cat, Score
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 SOLID appliqué
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **S** — Single Responsibility : chaque fichier a une seule responsabilité (ex: ScoreContext uniquement pour les scores).
+- **O** — Open/Closed : facile à étendre (ex: tri du classement), sans modifier l’existant.
+- **L** — Liskov Substitution : composants interchangeables via props claires.
+- **I** — Interface Segregation : API minimale (ex: `onVote(catId)`).
+- **D** — Dependency Inversion : les pages dépendent d’adapters (fetchCats), pas d’un backend concret.
+
+---
+
+## ♿ Accessibilité
+
+- Boutons réels `<button>` avec `aria-label`.
+- Focus visible clavier.
+- Respect de `prefers-reduced-motion`.
+- Images `alt` et `loading` optimisés.
+
+---
+
+## 🔧 Lancer localement
+
+```bash
+npm install
+npm run dev
 ```
+
+Build pour production :
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## ☁️ Déploiement Vercel
+
+1. Push du repo GitHub
+2. Import sur Vercel
+3. Framework : Vite
+4. Output : `dist/`

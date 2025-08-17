@@ -269,20 +269,7 @@ button { font: inherit; cursor: pointer; border: 0; }
 @media (max-width: 600px) {
   .scoreGridRest { grid-template-columns: 1fr; }
 }
-/* --- Focus visible (accessibilité clavier) --- */
-:focus-visible {
-  outline: 3px solid #ffd43b;
-  outline-offset: 3px;
-}
 
-.card:focus-visible,
-.btn:focus-visible,
-.drawerToggle:focus-visible,
-.podiumCard:focus-within,
-.polaroid:focus-within {
-  outline: 3px solid #ffd43b;
-  outline-offset: 6px;
-}
 
 /* --- Accessibilité: réduire les animations si demandé par l’utilisateur --- */
 @media (prefers-reduced-motion: reduce) {
