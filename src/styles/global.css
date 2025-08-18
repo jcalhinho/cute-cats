@@ -51,8 +51,8 @@ button { font: inherit; cursor: pointer; border: 0; }
   border: 1px solid var(--primary-strong);
 }
 .btn.secondary {
-  background: transparent;
-  color: var(--text);
+   color: #fff;
+  background: var(--primary);
   border-color: var(--border);
 }
 
@@ -205,7 +205,58 @@ button { font: inherit; cursor: pointer; border: 0; }
   z-index: 2;
 }
 .tag.rank { left: 8px; }
-.tag.score { right: 8px; }
+.tag.score {
+  right: 8px;
+  top: 0px;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 4px 0 0 0;
+  color: #000;     
+  background: #fff; 
+  border: 0;
+  box-shadow: var(--shadow);
+
+  
+  clip-path: polygon(
+    50% 92%,
+    61% 83%, 70% 75%, 78% 65%, 84% 55%, 88% 45%, 90% 37%,
+    90% 29%, 88% 23%, 84% 19%, 78% 17%, 72% 17%, 66% 19%,
+    60% 23%, 55% 29%, 50% 35%,
+    45% 29%, 40% 23%, 34% 19%, 28% 17%, 22% 17%, 16% 19%,
+    12% 23%, 10% 29%, 10% 37%, 12% 45%, 16% 55%, 22% 65%,
+    30% 75%, 39% 83%
+  );
+}
+
+.tag.score::before,
+.tag.score::after {
+  content: "";
+  position: absolute;
+  width: 44px;             /* lobes du cœur */
+  height: 60px;
+  background: #fff;        /* cœur blanc */
+  border-radius: 44px 44px 0 0; /* forme arrondie en haut */
+  top: 8px;
+  z-index: -1;             /* derrière le texte */
+}
+
+.tag.score::before {
+  left: 18px;
+  transform: rotate(-45deg);
+  transform-origin: bottom right;
+}
+
+.tag.score::after {
+  left: 18px;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+}
 .tag.top { left: 50%; transform: translateX(-50%); top: 8px; }
 
 /* Grille du reste */

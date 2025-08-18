@@ -25,7 +25,7 @@ const scrollTo = useCallback((el: HTMLElement | null, smooth = true) => {
   const playedSum = Object.values(state.scores).reduce((n, s) => n + s.played, 0);
   const matchesTotal = Math.floor(playedSum / 2);
 
-  // 👉 Une seule source de vérité pour le scroll: l'URL
+ 
   useEffect(() => {
     if (pathname === '/scores') {
       scrollTo(scoresRef.current, true); // smooth
@@ -38,7 +38,7 @@ const scrollTo = useCallback((el: HTMLElement | null, smooth = true) => {
 
 
   const handleToggle = () => {
-    // 👉 Ne pas scroller ici: on ne fait que changer l'URL
+  
     if (atScores) { navigate('/'); }
     else { navigate('/scores'); }
   };
