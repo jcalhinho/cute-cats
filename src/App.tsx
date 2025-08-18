@@ -3,6 +3,7 @@ import Mash from './pages/Mash';
 import NotFound from './pages/NotFound';
 
 export default function App() {
+  //  routage "spécial..."" :) 
   return (
     <>
       <Routes>
